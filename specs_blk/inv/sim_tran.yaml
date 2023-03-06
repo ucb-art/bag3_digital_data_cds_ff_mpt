@@ -1,0 +1,34 @@
+gen_specs_file: data/bag3_digital/specs_blk/inv/gen_sch.yaml
+
+tbm_class: bag3_testbenches.measurement.tran.digital.DigitalTranTB
+tbm_specs:
+  sim_envs: [tt_25, ss_m40, ff_125]
+  sim_params:
+    t_rst: 0.0
+    t_rst_rf: 0.0
+    t_per: 300.0e-12
+    t_rf: 10.0e-12
+    t_sim: 1.52e-9
+    t_delay: 20.0e-12
+    c_load: 10.0e-15
+  sim_options: {}
+  tran_options:
+    errpreset: conservative
+  pwr_domain:
+    in: [VSS, VDD]
+    out: [VSS, VDD]
+  sup_values:
+    VDD: {tt_25: 0.8, ss_m40: 0.72, ff_125: 0.88}
+    VSS: 0.0
+  dut_pins: [in, out, VDD, VSS]
+  save_outputs: [in, out]
+  pulse_list:
+    - pin: in
+      tper: t_per
+      tpw: t_per/2
+      trf: t_rf
+      td: t_delay
+  load_list:
+    - pin: out
+      type: cap
+      value: c_load

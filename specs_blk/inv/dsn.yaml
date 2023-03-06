@@ -3,7 +3,6 @@ root_dir: gen_outputs/inv/dsn
 impl_lib: AAA_DSN_INV
 
 dsn_params:
-
   gen_specs: data/bag3_digital/specs_blk/inv/gen_sch.yaml
   seg_n: 8
 
@@ -16,6 +15,9 @@ dsn_params:
         t_per: 300.0e-12
         t_rf: 5.0e-12
         c_load: 20.0e-15
+      sim_options: {}
+      tran_options:
+        errpreset: conservative
       pwr_domain:
         in: [VSS, VDD]
         out: [VSS, VDD]

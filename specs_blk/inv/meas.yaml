@@ -13,6 +13,9 @@ meas_params:
       t_per: 300.0e-12
       t_rf: 10.0e-12
       c_load: 10.0e-15
+    sim_options: {}
+    tran_options:
+      errpreset: conservative
     pwr_domain:
       in: [VSS, VDD]
       out: [VSS, VDD]
