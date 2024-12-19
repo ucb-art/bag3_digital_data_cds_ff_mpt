@@ -1,0 +1,21 @@
+dut_class: bag3_digital.schematic.inv_chain.bag3_digital__inv_chain
+impl_lib: AAA_INV_CHAIN
+impl_cell: AA_inv_chain
+root_dir: gen_outputs/inv_chain
+
+params:
+  inv_params:
+  - lch: 36
+    w_p: 4
+    w_n: 4
+    th_p: standard
+    th_n: standard
+    seg_p: 4
+    seg_n: 4
+  - lch: 36
+    w_p: 4
+    w_n: 4
+    th_p: standard
+    th_n: standard
+    seg_p: 8
+    seg_n: 8

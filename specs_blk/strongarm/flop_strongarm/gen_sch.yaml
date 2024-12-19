@@ -1,0 +1,70 @@
+dut_class: bag3_digital.schematic.flop_strongarm.bag3_digital__flop_strongarm
+impl_lib: AAA_FLOP_STRONGARM
+impl_cell: AA_flop_strongarm
+root_dir: gen_outputs/flop_strongarm
+
+params:
+  has_rstlb: true
+  sa_params:
+    has_bridge: true
+    lch: 36
+    seg_dict:
+      br: 1
+      in: 2
+      nfb: 4
+      pfb: 4
+      swm: 1
+      swo: 2
+      tail: 4
+    stack_br: 4
+    th_dict:
+      br: lvt
+      in: lvt
+      nfb: lvt
+      pfb: lvt
+      swm: lvt
+      swo: lvt
+      tail: lvt
+    w_dict:
+      br: 4
+      in: 4
+      nfb: 4
+      pfb: 4
+      swm: 4
+      swo: 4
+      tail: 4
+  sr_params:
+    core_params:
+      lch: 36
+      seg_dict:
+        nfb: 1
+        nr: 2
+        pfb: 1
+        pr: 2
+        ps: 2
+      th_dict:
+        nfb: lvt
+        nr: lvt
+        pfb: lvt
+        pr: lvt
+        ps: lvt
+      w_dict:
+        nfb: 4
+        nr: 4
+        pfb: 4
+        pr: 4
+        ps: 4
+    inbuf_params:
+      lch: 36
+      seg: 2
+      th_n: lvt
+      th_p: lvt
+      w_n: 4
+      w_p: 4
+    outbuf_params:
+      lch: 36
+      seg: 2
+      th_n: lvt
+      th_p: lvt
+      w_n: 4
+      w_p: 4

@@ -1,0 +1,38 @@
+dut_class: bag3_digital.schematic.des_binary_tree.bag3_digital__des_binary_tree
+impl_lib: AAA_DES_BINARY_TREE
+impl_cell: AA_des_binary_tree
+root_dir: gen_outputs/des_binary_tree
+
+_default_gate_params: &default_gate_params
+  lch: 36
+  w_p: 2
+  w_n: 2
+  th_p: standard
+  th_n: standard
+
+params:
+  num_stages: 3
+  is_big_endian: false
+  use_ff_list: [false, false, true]
+  div_chain_params: null
+  demux_params:
+    clk_buf_params:
+      inv_params:
+      - <<: *default_gate_params
+        seg_p: 2
+        seg_n: 2
+      - <<: *default_gate_params
+        seg_p: 2
+        seg_n: 2
+    dlatch_params:
+      <<: *default_gate_params
+      seg_dict: {buf: 2, tfb: 1, tin: 2}
+    in_buf_params: null
+  din_buf_params:
+    inv_params:
+    - <<: *default_gate_params
+      seg_p: 2
+      seg_n: 2
+    - <<: *default_gate_params
+      seg_p: 2
+      seg_n: 2
