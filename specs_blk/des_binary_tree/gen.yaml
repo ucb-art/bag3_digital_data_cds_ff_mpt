@@ -1,0 +1,58 @@
+dut_class: xbase.layout.mos.top.GenericWrapper
+impl_lib: AAA_DES_BINARY_TREE
+impl_cell: AA_des_binary_tree
+root_dir: gen_outputs/des_binary_tree
+
+params:
+  cls_name: bag3_digital.layout.serdes.des_binary_tree.DesBinaryTree
+  draw_taps: true
+
+  params:
+    num_stages: 3
+    num_sig_hor_layers: 1
+    is_big_endian: false
+    tap_sep_unit: 2
+    demux_params:
+      dlatch_params:
+        seg: 2
+      clk_buf_params:
+        seg_list: [2, 2]
+    din_buf_params:
+      seg_list: [2, 2]
+    use_ff_list: [false, false, true]
+
+    pinfo:
+      lch: 36
+      top_layer: 4
+      tr_widths:
+        sig: {2: 2, 3: 2, 4: 1}
+        sup: {2: 4, 3: 2, 4: 7}
+        clk: {2: 2, 3: 2, 4: 2}
+      tr_spaces:
+        !!python/tuple ['clk', '']: {2: 0, 3: 0.5, 4: 0.5}
+        !!python/tuple ['sup', '']: {4: 0.5}
+
+      wire_specs:
+        4:
+          data: ['sup<0>', 'clk', 'sig<0:11>', 'sup<1>']
+          shared: ['sup<0>', 'sup<1>']
+          align: LOWER_COMPACT
+
+      row_specs:
+        - mos_type: nch
+          width: 2
+          threshold: standard
+          bot_wires:
+            data: ['sup', 'sig<0:1>']
+            shared: ['sup']
+          top_wires:
+            data: ['sig<0:1>']
+          flip: True
+        - mos_type: pch
+          width: 2
+          threshold: standard
+          bot_wires:
+            data: ['sig<0:1>']
+          top_wires:
+            data: ['sig<0:1>', 'sup']
+            shared: ['sup']
