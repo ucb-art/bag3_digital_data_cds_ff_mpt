@@ -1,0 +1,38 @@
+dut_class: bag3_digital.layout.stdcells.util.STDCellWrapper
+impl_lib: AAA_INV_TRISTATE
+impl_cell: AA_inv_tristate
+root_dir: gen_outputs/inv_tristate
+
+params:
+  cls_name: bag3_digital.layout.stdcells.gates.InvTristateCore
+  draw_taps: True
+
+  params:
+    seg: 4
+    dual_output: False
+
+    pinfo:
+      lch: 36
+      top_layer: 4
+      row_specs:
+        - mos_type: nch
+          width: 4
+          threshold: lvt
+          bot_wires:
+            data: ['sup', 'sig']
+            shared: ['sup']
+          top_wires: ['sig<0:1>']
+          flip: True
+        - mos_type: pch
+          width: 4
+          threshold: lvt
+          bot_wires: ['sig<0:1>']
+          top_wires:
+            data: ['sig', 'sup']
+            shared: ['sup']
+      tr_widths:
+        sup: {2: 2, 3: 2, 4: 2}
+        sig: {2: 2, 3: 2, 4: 2}
+      tr_spaces:
+        !!python/tuple [sup, '']: {2: 2, 3: 1, 4: 1}
+        !!python/tuple [sig, '']: {2: 0, 3: 0, 4: 0}
